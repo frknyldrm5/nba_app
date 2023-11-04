@@ -7,10 +7,8 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header ">
-       appp
-      </header>
+    <div>
+      <h2>app</h2>
     </div>
   );
 }
