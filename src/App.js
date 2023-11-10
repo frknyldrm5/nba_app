@@ -8,11 +8,13 @@ function App() {
 
 
 
-  return (
-      <div>
-          <AppRouter/>
-      </div>
-  );
+    return (
+        <div>
+            <NbaContextProvider>
+                <AppRouter/>
+            </NbaContextProvider>
+        </div>
+    );
 }
 
 export default App;
