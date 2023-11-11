@@ -5,15 +5,15 @@ import { NbaContext } from '../context/NbaContext';
 
 const Players = () => {
     // Use the useContext hook to access NBA player data from the context
-    const { playersData } = useContext(NbaContext);
-    console.log('Players Data:', playersData); // Log the player data to the console
+    const { playersFirestoreData } = useContext(NbaContext);
+    console.log('Players Data:', playersFirestoreData); // Log the player data to the console
 
     return (
         <Container className="mt-3">
             <h2>Players</h2>
             <Row>
-                {Array.isArray(playersData) ? (
-                    playersData.map((player) => (
+                {Array.isArray(playersFirestoreData) ? (
+                    playersFirestoreData.map((player) => (
                         <Col key={player.id}>
                             <PlayerCard player={player} />
                         </Col>
