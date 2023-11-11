@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Main from "../pages/Main";
 import Teams from "../pages/Teams";
 import Players from "../pages/Players";
-import Coaches from "../pages/Coaches";
 import MyNavbar from "../components/MyNavbar";
 import MyFooter from "../components/MyFooter";
 import Standings from "../pages/Standings";
@@ -16,7 +15,6 @@ function AppRouter() {
                 <Route path="/teams" element={<Teams />} />
                 <Route path="/players" element={<Players />} />
                 <Route path="/standings" element={<Standings />} />
-                <Route path="/coaches" element={<Coaches />} />
             </Routes>
             <MyFooter/>
         </Router>
