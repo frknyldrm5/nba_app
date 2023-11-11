@@ -20,13 +20,10 @@ function MyNavbar(props) {
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="/players">Players</Nav.Link>
                     <Nav.Link href="/teams">Teams</Nav.Link>
-                    <Nav.Link href="/coaches">Coaches</Nav.Link>
+                    <Nav.Link href="/standings">Standings</Nav.Link>
+                    <Nav.Link href="/login">Login</Nav.Link>
+                    <Nav.Link href="/register">Register</Nav.Link>
                 </Nav>
-
-                {/*<Nav className="mr-auto">*/}
-                {/*    <Nav.Link href="#login">Login</Nav.Link>*/}
-                {/*    <Nav.Link href="#register">Register</Nav.Link>*/}
-                {/*</Nav>*/}
             </Navbar.Collapse>
         </Navbar>
     );

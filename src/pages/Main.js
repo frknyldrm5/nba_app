@@ -1,15 +1,18 @@
 import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { NbaContext } from '../context/NbaContext';
+import {Link, useNavigate, useParams} from "react-router-dom";
+import {Loading} from "../components/Loading";
 
 function Main(props) {
-    const { teamsFirestoreData, deleteTeam } = useContext(NbaContext);
+    const { teamsFirestoreData } = useContext(NbaContext);
+
+    const navigate = useNavigate();
+    const params = useParams();
 
 
-    function deleteHandler(id){
-        deleteTeam(id);
 
-    }
+
 
     return (
         <div>
@@ -23,16 +26,13 @@ function Main(props) {
                                 <Card.Body>
                                     <Card.Title>{team.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{team.nickname}</Card.Subtitle>
-                                    {/* You can add other Card components for additional information */}
-                                    <Button onClick={() => {
-                                        deleteHandler(team.id);
-                                    }}>Delete Team</Button>
+                                    <Link to={`/team-detail/${team.id}`} className="btn btn-primary">View Details</Link>
                                 </Card.Body>
                             </Card>
                         </div>
                     ))
                 ) : (
-                    <p>Loading...</p>
+                    <Loading/>
                 )}
             </div>
         </div>

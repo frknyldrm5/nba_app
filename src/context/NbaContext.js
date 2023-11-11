@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { addDoc, collection, getDocs, serverTimestamp } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
 export const NbaContext = createContext();
@@ -9,8 +9,8 @@ const teamsOptions = {
     method: 'GET',
     url: 'https://api-nba-v1.p.rapidapi.com/teams',
     headers: {
-        'X-RapidAPI-Key': '6f780524fcmsh9a7426587dc54ddp1e6dccjsn214dec2e0e23',
-        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': '7072b9aca6mshb887b395dcec2a5p130bc1jsnacc43790d096',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
     },
 };
 
@@ -22,16 +22,34 @@ const playersOptions = {
         season: '2021',
     },
     headers: {
-        'X-RapidAPI-Key': '6f780524fcmsh9a7426587dc54ddp1e6dccjsn214dec2e0e23',
-        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+        'X-RapidAPI-Key': '7072b9aca6mshb887b395dcec2a5p130bc1jsnacc43790d096',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
     },
 };
+
+const standingsOptions = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/standings',
+    params: {
+        league: 'standard',
+        season: '2021'
+    },
+    headers: {
+        'X-RapidAPI-Key': '7072b9aca6mshb887b395dcec2a5p130bc1jsnacc43790d096',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com'
+    },
+
+};
+
+
 
 function NbaContextProvider({ children }) {
     const [teamsData, setTeamsData] = useState([]);
     const [playersData, setPlayersData] = useState([]);
+    const [standingsData, setStandingsData] = useState([]);
     const [teamsFirestoreData, setTeamsFirestoreData] = useState([]);
     const [playersFirestoreData, setPlayersFirestoreData] = useState([]);
+    const [standingsFirestoreData, setStandingsFirestoreData] = useState([]);
 
     useEffect(() => {
         const fetchRapidAPIData = async () => {
@@ -44,9 +62,15 @@ function NbaContextProvider({ children }) {
                 const playersResponse = await axios.request(playersOptions);
                 const fetchedPlayersData = playersResponse.data.response;
 
+
+                // Fetch standings from RapidAPI
+                const standingsResponse = await axios.request(standingsOptions);
+                const fetchedStandingsData = standingsResponse.data.response;
+
                 // Set state for RapidAPI data
                 setTeamsData(fetchedTeamsData);
                 setPlayersData(fetchedPlayersData);
+                setStandingsData(fetchedStandingsData);
             } catch (error) {
                 console.error('Error fetching RapidAPI data:', error);
             }
@@ -62,9 +86,14 @@ function NbaContextProvider({ children }) {
                 const playersFirestoreSnapshot = await getDocs(collection(db, 'players'));
                 const fetchedPlayersFirestoreData = playersFirestoreSnapshot.docs.map((doc) => doc.data());
 
+                // Fetch standings from Firestore
+                const standingsFirestoreSnapshot = await getDocs(collection(db, 'standings'));
+                const fetchedStandingsFirestoreData = standingsFirestoreSnapshot.docs.map((doc) => doc.data());
+
                 // Set state for Firebase data
                 setTeamsFirestoreData(fetchedTeamsFirestoreData);
                 setPlayersFirestoreData(fetchedPlayersFirestoreData);
+                setStandingsFirestoreData(fetchedStandingsFirestoreData);
             } catch (error) {
                 console.error('Error fetching Firebase data:', error);
             }
@@ -78,7 +107,7 @@ function NbaContextProvider({ children }) {
     }, []);
 
     return (
-        <NbaContext.Provider value={{ teamsData, playersData, teamsFirestoreData, playersFirestoreData }}>
+        <NbaContext.Provider value={{ teamsFirestoreData, playersFirestoreData,standingsFirestoreData }}>
             {children}
         </NbaContext.Provider>
     );

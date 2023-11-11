@@ -5,6 +5,7 @@ import Players from "../pages/Players";
 import Coaches from "../pages/Coaches";
 import MyNavbar from "../components/MyNavbar";
 import MyFooter from "../components/MyFooter";
+import Standings from "../pages/Standings";
 
 function AppRouter() {
     return (
@@ -14,6 +15,7 @@ function AppRouter() {
                 <Route path="/" element={<Main />} />
                 <Route path="/teams" element={<Teams />} />
                 <Route path="/players" element={<Players />} />
+                <Route path="/standings" element={<Standings />} />
                 <Route path="/coaches" element={<Coaches />} />
             </Routes>
             <MyFooter/>
