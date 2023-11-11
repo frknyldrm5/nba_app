@@ -1,6 +1,5 @@
 import { Card } from 'react-bootstrap';
 
-
 const PlayerCard = ({ player }) => {
     console.log(player)
 
