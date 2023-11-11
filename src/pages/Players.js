@@ -1,28 +1,26 @@
-import React from 'react';
-import PlayerCard from "../components/PlayerCard";
-import {Col, Container, Row} from "react-bootstrap";
+import React, { useContext } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
+import PlayerCard from '../components/PlayerCard';
+import { NbaContext } from '../context/NbaContext';
 
 const Players = () => {
-    // Dummy data for players
-    const playersData = [
-        { id: 1, name: 'Player 1', team: 'Team A', position: 'Forward' },
-        { id: 2, name: 'Player 2', team: 'Team B', position: 'Midfielder' },
-        { id: 3, name: 'Player 3', team: 'Team C', position: 'Defender' },
-        { id: 4, name: 'Player 4', team: 'Team D', position: 'Forward' },
-        { id: 5, name: 'Player 5', team: 'Team E', position: 'Midfielder' },
-        { id: 6, name: 'Player 6', team: 'Team F', position: 'Defender' },
-        // Add more players as needed
-    ];
+    // Use the useContext hook to access NBA player data from the context
+    const { playersData } = useContext(NbaContext);
+    console.log('Players Data:', playersData); // Log the player data to the console
 
     return (
         <Container className="mt-3">
             <h2>Players</h2>
             <Row>
-                {playersData.map((player) => (
-                    <Col key={player.id}>
-                        <PlayerCard player={player} />
-                    </Col>
-                ))}
+                {Array.isArray(playersData) ? (
+                    playersData.map((player) => (
+                        <Col key={player.id}>
+                            <PlayerCard player={player} />
+                        </Col>
+                    ))
+                ) : (
+                    <p>Loading players...</p>
+                )}
             </Row>
         </Container>
     );
