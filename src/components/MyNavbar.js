@@ -5,7 +5,7 @@ import {Nav,Navbar} from "react-bootstrap";
 function MyNavbar(props) {
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
                 <img
                     src="/images/nba-logo_.jpeg"
                     width="70"
