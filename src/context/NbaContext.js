@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const NbaContext = createContext();
 
-const options = {
+const teamsOptions = {
     method: 'GET',
     url: 'https://api-nba-v1.p.rapidapi.com/teams',
     headers: {
@@ -12,15 +12,38 @@ const options = {
     },
 };
 
+const playersOptions = {
+    method: 'GET',
+    url: 'https://api-nba-v1.p.rapidapi.com/players',
+    params: {
+        team: '1', // Replace with the desired team ID
+        season: '2021',
+    },
+    headers: {
+        'X-RapidAPI-Key': '6f780524fcmsh9a7426587dc54ddp1e6dccjsn214dec2e0e23',
+        'X-RapidAPI-Host': 'api-nba-v1.p.rapidapi.com',
+    },
+};
+
 function NbaContextProvider({ children }) {
-    const [nbaData, setNbaData] = useState([]);
+    const [teamsData, setTeamsData] = useState([]);
+    const [playersData, setPlayersData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.request(options);
-                setNbaData(response.data); // Set the fetched data to state
-                console.log(response.data);
+                // Fetch teams
+                const teamsResponse = await axios.request(teamsOptions);
+                const fetchedTeamsData = teamsResponse.data.response;
+                setTeamsData(fetchedTeamsData);
+
+                // Fetch players for a specific team (replace '1' with the desired team ID)
+                const playersResponse = await axios.request(playersOptions);
+                const fetchedPlayersData = playersResponse.data.response;
+                setPlayersData(fetchedPlayersData);
+
+                console.log('Teams:', fetchedTeamsData);
+                console.log('Players:', fetchedPlayersData);
             } catch (error) {
                 console.error(error);
             }
@@ -30,7 +53,7 @@ function NbaContextProvider({ children }) {
     }, []);
 
     return (
-        <NbaContext.Provider value={nbaData}>
+        <NbaContext.Provider value={{ teamsData, playersData }}>
             {children}
         </NbaContext.Provider>
     );

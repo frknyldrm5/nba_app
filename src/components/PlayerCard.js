@@ -1,17 +1,22 @@
-import React from 'react';
-import {Card} from "react-bootstrap";
+import { Card } from 'react-bootstrap';
 
-function PlayerCard({player}) {
+
+const PlayerCard = ({ player }) => {
+    console.log(player)
+
 
     return (
-        <Card style={{ width: '18rem' }} className="mb-3">
+        <Card style={{ width: '18rem' }}>
+            {/* Assuming playerDetails has properties like name, team, position, etc. */}
             <Card.Body>
-                <Card.Title>{player.name}</Card.Title>
-                <Card.Text>Team: {player.team}</Card.Text>
-                <Card.Text>Position: {player.position}</Card.Text>
+                <Card.Title>{player.firstname} {player.lastname}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{player.team}</Card.Subtitle>
+                <Card.Text>{`Country: ${player.birth.country}`}</Card.Text>
+                <Card.Text>{`Birth Date: ${player.birth.date}`}</Card.Text>
+                {/* Add other Card components for additional information */}
             </Card.Body>
         </Card>
     );
-}
+};
 
 export default PlayerCard;

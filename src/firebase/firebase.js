@@ -5,12 +5,12 @@ import {getAuth} from "firebase/auth";
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCOuIC2JmGrW_yPdTxcZ0ysbrTiXIYjuFE",
-    authDomain: "react-blog-app-a1c9a.firebaseapp.com",
-    projectId: "react-blog-app-a1c9a",
-    storageBucket: "react-blog-app-a1c9a.appspot.com",
-    messagingSenderId: "673310326158",
-    appId: "1:673310326158:web:8765ed354699c36b3d78df"
+    apiKey: "AIzaSyAKoMO3q3FFzaCTQcYjqTb4kAcCrYwu7uc",
+    authDomain: "nba-app-a6edd.firebaseapp.com",
+    projectId: "nba-app-a6edd",
+    storageBucket: "nba-app-a6edd.appspot.com",
+    messagingSenderId: "924176361183",
+    appId: "1:924176361183:web:d31c4cb0993dafbaa2eb6a"
 };
 
 // Initialize Firebase
