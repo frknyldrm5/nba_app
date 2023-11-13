@@ -2,9 +2,11 @@ import React, {useContext} from 'react';
 import {NbaContext} from "../context/NbaContext";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import {Card} from "react-bootstrap";
+import {teams} from "../data";
 
 function Teams() {
-    const { teamsFirestoreData } = useContext(NbaContext);
+    // const { teamsFirestoreData } = useContext(NbaContext);
+
 
     const navigate = useNavigate();
     const params = useParams();
@@ -17,8 +19,8 @@ function Teams() {
         <div>
             <h1>Teams</h1>
             <div className="card-container row">
-                {Array.isArray(teamsFirestoreData) ? (
-                    teamsFirestoreData.map((team) => (
+                {Array.isArray(teams) ? (
+                    teams.map((team) => (
                         <div key={team.id} className="col-md-4 mb-4">
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={team.logo} alt={`${team.nickname} Logo`} />

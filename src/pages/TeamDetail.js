@@ -1,25 +1,48 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 
 function TeamDetail() {
-    const { playersFirestoreData } = useContext(NbaContext);
+    const { teamsFirestoreData,deleteTeam } = useContext(NbaContext);
     const { id } = useParams();
+    const navigate = useNavigate();
 
     // Find the team with the matching id
-    const player = playersFirestoreData.find((player) => player.id === parseInt(id, 10));
-    console.log(player)
+    const team = teamsFirestoreData.find((team) => team.id === parseInt(id, 10));
+    console.log(team)
 
-    if (!player) {
-        return <p>player not found</p>;
+    function deleteHandler(id) {
+        if (id) {
+            deleteTeam(id);
+            navigate("/");
+        } else {
+            console.error("Invalid team id:", id);
+        }
+    }
+
+
+    if (!team) {
+        return <p>Team not found</p>;
     }
 
     return (
         <div>
-            <h1>Player Detail</h1>
+            <h1>Team Detail</h1>
             <div>
-                <h2>{player.firstname} {player.lastname}</h2>
-                <img src={player.logo} alt={`${player.firstName} Logo`} />
+                <img src={team.logo} alt={`${team.nickname} Logo`} />
+                <h2>{team.name}</h2>
+                <p>Nickname: {team.nickname}</p>
+                <p>City: {team.city}</p>
+                <p>Conference: {team.conference}</p>
+                <button className="mx-3 btn btn-outline-danger"
+                        onClick={() => {
+                            deleteHandler(team.id);
+                        }}
+                >
+                    &#128465;
+                </button>
+                <h2>Players</h2>
+
             </div>
         </div>
     );

@@ -1,19 +1,18 @@
 .App {
     text-align: center;
-    background-color: red;
+    background-color: wheat; /* .App arkaplan rengi */
 }
 
-
-
 .App-header {
-    background-color: #282c34;
+    background-color: #343a40; /* Navbar arkaplan rengi */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
+    font-size: 1.5rem; /* Genel font büyüklüğü */
     color: white;
+    padding: 20px; /* .App-header içeriğine biraz padding ekleyin */
 }
 
 

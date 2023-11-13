@@ -1,4 +1,3 @@
-// MyFooter.js
 import React from 'react';
 
 function MyFooter() {

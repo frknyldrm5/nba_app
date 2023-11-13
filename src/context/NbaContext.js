@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs,doc,deleteDoc, getDoc  } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
 export const NbaContext = createContext();
@@ -37,8 +37,29 @@ function NbaContextProvider({ children }) {
         fetchFirebaseData();
     }, []);
 
+    async function deleteTeam(teamId) {
+        console.log('Deleting team with ID:', teamId);
+
+        // Convert teamId to string if it's a number
+        const stringTeamId = String(teamId);
+
+        const teamRef = doc(db, 'teams', stringTeamId);
+
+        try {
+            // Log the existing team data before deletion
+            const teamData = await getDoc(teamRef);
+            console.log('Existing Team Data:', teamData.data());
+
+            await deleteDoc(teamRef);
+            console.log('Team deleted successfully!');
+        } catch (error) {
+            console.error('Error deleting team:', error);
+        }
+    }
+
+
     return (
-        <NbaContext.Provider value={{ teamsFirestoreData, playersFirestoreData, standingsFirestoreData }}>
+        <NbaContext.Provider value={{ teamsFirestoreData, playersFirestoreData, standingsFirestoreData,deleteTeam }}>
             {children}
         </NbaContext.Provider>
     );

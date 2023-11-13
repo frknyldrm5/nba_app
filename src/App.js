@@ -5,6 +5,7 @@ import NbaContextProvider from "./context/NbaContext";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthContextProvider from "./context/AuthContext";
 
 
 
@@ -12,10 +13,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
-        <div>
+        <div className={"App"}>
+            <AuthContextProvider>
             <NbaContextProvider>
                 <AppRouter/>
             </NbaContextProvider>
+            </AuthContextProvider>
         </div>
     );
 }

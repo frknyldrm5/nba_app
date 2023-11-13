@@ -18,8 +18,6 @@ function AuthForm({handleChange, handleSubmit,info}) {
                     <input name="firstName" onChange={handleChange} type="text" className="form-control"
                            placeholder="Enter your first name.."/>
                 </div>}
-
-
                 {info.lastName && <div className="mb-3">
                     <label htmlFor="lastName" className="form-label">
                         Last Name
@@ -49,4 +47,4 @@ function AuthForm({handleChange, handleSubmit,info}) {
     );
 }
 
-export default AuthForm;
+export default AuthForm
