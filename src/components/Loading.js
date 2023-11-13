@@ -1,35 +1,20 @@
-import Spinner from 'react-bootstrap/Spinner';
-import {Button} from "react-bootstrap";
+import React from 'react';
+import { Spinner } from 'react-bootstrap';
 
-function Loading() {
+
+const Loading = () => {
     return (
-        <>
-            <Button variant="primary" disabled>
-                <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                />
+        <div className="text-center mt-5">
+            <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
-            </Button>{' '}
-            <Button variant="primary" disabled>
-                <Spinner
-                    as="span"
-                    animation="grow"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                />
-                Loading...
-            </Button>
-        </>
+            </Spinner>
+            <p className="mt-2">Loading...</p>
+        </div>
     );
-}
-
+};
 
 export default Loading;
+
 
 
 

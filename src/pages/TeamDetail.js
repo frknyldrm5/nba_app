@@ -3,28 +3,23 @@ import { useParams } from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 
 function TeamDetail() {
-    const { teamsFirestoreData } = useContext(NbaContext);
+    const { playersFirestoreData } = useContext(NbaContext);
     const { id } = useParams();
 
     // Find the team with the matching id
-    const team = teamsFirestoreData.find((team) => team.id === parseInt(id, 10));
-    console.log(team)
+    const player = playersFirestoreData.find((player) => player.id === parseInt(id, 10));
+    console.log(player)
 
-    if (!team) {
-        return <p>Team not found</p>;
+    if (!player) {
+        return <p>player not found</p>;
     }
 
     return (
         <div>
-            <h1>Team Detail</h1>
+            <h1>Player Detail</h1>
             <div>
-                <img src={team.logo} alt={`${team.nickname} Logo`} />
-                <h2>{team.name}</h2>
-                <p>Nickname: {team.nickname}</p>
-                <p>City: {team.city}</p>
-                <p>Conference: {team.conference}</p>
-                <h2>Players</h2>
-
+                <h2>{player.firstname} {player.lastname}</h2>
+                <img src={player.logo} alt={`${player.firstName} Logo`} />
             </div>
         </div>
     );

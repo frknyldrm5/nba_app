@@ -10,20 +10,22 @@ function Standings(props) {
     return (
         <div>
             <h2>Standings</h2>
+
             <table>
                 <thead>
                 <tr>
                     <th>Team</th>
                     <th>Wins</th>
                     <th>Losses</th>
-                    {/* Add more columns as needed */}
                 </tr>
                 </thead>
                 <tbody>
-                {standingsFirestoreData.map((team) => (
-                    <tr key={team.id}>
-                        <td>{team.seasons}</td>
-                        {/* Add more cells for additional data */}
+                {standingsFirestoreData.map((standing) => (
+                    <tr key={standing.id}>
+                        <td>{standing.team.name}</td>
+                        <td>{standing.season}</td>
+                        <td>{standing.streak}</td>
+
                     </tr>
                 ))}
                 </tbody>

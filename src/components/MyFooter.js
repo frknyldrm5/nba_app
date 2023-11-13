@@ -1,22 +1,20 @@
-
 import React from 'react';
-import {
-    MDBFooter,
-    MDBContainer,
-} from 'mdb-react-ui-kit';
+import { Container} from 'react-bootstrap';
 
 function MyFooter() {
     return (
-        <MDBFooter className='text-center text-white' style={{ backgroundColor: '#21081a' }}>
-            <MDBContainer className='p-4'></MDBContainer>
+        <footer className="text-center text-white" style={{ backgroundColor: '#21081a' }}>
+            <Container className="p-4">
+                NBA APP
+            </Container>
 
-            <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-                © 2020 Copyright:
-                <a className='text-white' href='https://furkanyildirim.be/'>
-                    MyPage
+            <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+                © 2023 Copyright =>
+                <a className="text-white text-decoration-none" href="https://furkanyildirim.be/">
+                     MyPage
                 </a>
             </div>
-        </MDBFooter>
+        </footer>
     );
 }
 

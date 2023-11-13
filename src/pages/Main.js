@@ -3,6 +3,8 @@ import { Card } from 'react-bootstrap';
 import { NbaContext } from '../context/NbaContext';
 import {Link, useNavigate, useParams} from "react-router-dom";
 import Loading from "../components/Loading";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Main(props) {
     const { teamsFirestoreData } = useContext(NbaContext);
