@@ -1,13 +1,35 @@
-// import { BoxesLoader } from "react-awesome-loaders";
-// export const Loading = () => {
-//     return (
-//         <>
-//             <BoxesLoader
-//                 boxColor={"#6366F1"}
-//                 style={{ marginBottom: "20px" }}
-//                 desktopSize={"128px"}
-//                 mobileSize={"80px"}
-//             />
-//         </>
-//     );
-// };
+import Spinner from 'react-bootstrap/Spinner';
+import {Button} from "react-bootstrap";
+
+function Loading() {
+    return (
+        <>
+            <Button variant="primary" disabled>
+                <Spinner
+                    as="span"
+                    animation="border"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                />
+                <span className="visually-hidden">Loading...</span>
+            </Button>{' '}
+            <Button variant="primary" disabled>
+                <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                />
+                Loading...
+            </Button>
+        </>
+    );
+}
+
+
+export default Loading;
+
+
+
