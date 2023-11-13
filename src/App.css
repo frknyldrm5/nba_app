@@ -1,17 +1,9 @@
 .App {
     text-align: center;
+    background-color: red;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
 
 .App-header {
     background-color: #282c34;
@@ -23,21 +15,6 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
-
-.post-group {
-
-
-}
-
-.post {
-    background-color: purple;
-}
-
-.edit-pen {
-    cursor: pointer;
-    border: solid 1px black;
-}
-
 
 
 .card-img-top {
@@ -53,8 +30,6 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
-
-
 
 .detail-image {
     width: 40em;

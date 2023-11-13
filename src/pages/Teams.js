@@ -15,7 +15,7 @@ function Teams() {
 
     return (
         <div>
-            <h1>Main</h1>
+            <h1>Teams</h1>
             <div className="card-container row">
                 {Array.isArray(teamsFirestoreData) ? (
                     teamsFirestoreData.map((team) => (
