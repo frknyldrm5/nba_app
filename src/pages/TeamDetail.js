@@ -39,13 +39,13 @@ function TeamDetail() {
                         style={{ maxWidth: '100%', maxHeight: '200px', margin: 'auto', objectFit: 'contain' }}
                     />
                     <Card.Body>
-                        <Card.Title>{team.name}</Card.Title>
+                        <Card.Title style={{ fontWeight: 'bold' }}>{team.name}</Card.Title>
                         <Card.Text>
-                            <p>Nickname: {team.nickname}</p>
-                            <p>City: {team.city}</p>
-                            <p>Conference: {conference}</p>
-                            <p>Code: {team.code}</p>
-                            <p>Has AllStar: {allStar}</p>
+                            <p><strong>Nickname:</strong> {team.nickname}</p>
+                            <p><strong>City:</strong> {team.city}</p>
+                            <p><strong>Conference:</strong> {conference}</p>
+                            <p><strong>Code:</strong> {team.code}</p>
+                            <p><strong>Has AllStar:</strong> {allStar}</p>
                         </Card.Text>
                         <div className="mb-3">
                             <Button variant="outline-danger" className="mx-2" onClick={() => deleteHandler(team.id)}>
