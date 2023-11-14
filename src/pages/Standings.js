@@ -13,18 +13,26 @@ function Standings(props) {
 
             <table style={{ width: '100%', borderCollapse: 'collapse', marginBottom: '20px' }}>
                 <thead>
-                <tr style={{ background: '#f2f2f2' }}>
+                <tr style={{ background: 'gray' }}>
                     <th style={{ padding: '10px', textAlign: 'left' }}>Team</th>
+                    <th style={{ padding: '10px', textAlign: 'left' }}>Logo</th>
                     <th style={{ padding: '10px', textAlign: 'center' }}>Season</th>
                     <th style={{ padding: '10px', textAlign: 'center' }}>Streak</th>
+                    <th style={{ padding: '10px', textAlign: 'center' }}>Wins</th>
+                    <th style={{ padding: '10px', textAlign: 'center' }}>Loses</th>
                 </tr>
                 </thead>
                 <tbody>
                 {standingsFirestoreData.map((standing) => (
-                    <tr key={standing.id} style={{ borderBottom: '1px solid #ddd' }}>
+                    <tr key={standing.id} style={{ borderBottom: '1px solid gray' }}>
                         <td style={{ padding: '10px', textAlign: 'left' }}>{standing.team.name}</td>
+                        <td style={{ padding: '10px', textAlign: 'left' }}>
+                            <img src={standing.team.logo} alt={`${standing.team.name} Logo`} style={{ width: '50px', height: '50px' }} />
+                        </td>
                         <td style={{ padding: '10px', textAlign: 'center' }}>{standing.season}</td>
                         <td style={{ padding: '10px', textAlign: 'center' }}>{standing.streak}</td>
+                        <td style={{ padding: '10px', textAlign: 'center' }}>{standing.conference.win}</td>
+                        <td style={{ padding: '10px', textAlign: 'center' }}>{standing.conference.loss}</td>
                     </tr>
                 ))}
                 </tbody>
