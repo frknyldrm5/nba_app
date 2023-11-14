@@ -63,7 +63,7 @@ function AuthContextProvider({children}) {
                 toast.success(`Welcome ${auth.currentUser.displayName}`, {
                     position: toast.POSITION.TOP_RIGHT
                 });
-                navigate("/")
+                // navigate("/")
 
             }).catch((error) => {
                 console.log(error)

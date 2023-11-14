@@ -28,7 +28,11 @@ function Login() {
     }
 
     return (
+
+
         <AuthForm handleChange={handleChange} handleSubmit={handleSubmit} info={info}/>
+
+
 
     );
 }

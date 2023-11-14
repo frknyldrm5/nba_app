@@ -43,7 +43,7 @@ function AppRouter() {
                 <Route path="/standings" element={<Standings />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/team-detail/:id" element={<TeamDetail/>}/>
+                <Route path="/team-detail/:name" element={<TeamDetail/>}/>
             </Routes>
             <MyFooter/>
         </Router>

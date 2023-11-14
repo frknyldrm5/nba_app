@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
 import {NbaContext} from "../context/NbaContext";
-import {standingsData} from "../data";
-
 
 function Standings(props) {
     // Access the standings data from the context
-    // const { standingsFirestoreData } = useContext(NbaContext);
-    // console.log('Standings Data:', standingsFirestoreData); // Log the standings data to the console
+    const { standingsFirestoreData } = useContext(NbaContext);
+    console.log('Standings Data:', standingsFirestoreData); // Log the standings data to the console
 
     // Render the standings data
     return (
@@ -22,7 +20,7 @@ function Standings(props) {
                 </tr>
                 </thead>
                 <tbody>
-                {standingsData.map((standing) => (
+                {standingsFirestoreData.map((standing) => (
                     <tr key={standing.id}>
                         <td>{standing.team.name}</td>
                         <td>{standing.season}</td>

@@ -1,38 +1,28 @@
 import React, { useContext } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 
-const PlayerDetail = () => {
+function TeamDetail() {
     const { playersFirestoreData } = useContext(NbaContext);
     const { id } = useParams();
 
-    // Find the player with the specified ID
-    const player = playersFirestoreData.find((p) => p.id === id);
+    // Find the team with the matching id
+    const player = playersFirestoreData.find((player) => player.id === parseInt(id, 10));
+    console.log(player)
 
     if (!player) {
-        return <p>Player not found</p>;
+        return <p>player not found</p>;
     }
 
     return (
-        <Container className="mt-3">
-            <h2>Player Detail</h2>
-            <Row>
-                <Col>
-                    <Card style={{ width: '18rem' }}>
-                        <Card.Img variant="top" src={player.logo} alt={`${player.firstname} Logo`} />
-                        <Card.Body>
-                            <Card.Title>{`${player.firstname} ${player.lastname}`}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{player.team}</Card.Subtitle>
-                            <Card.Text>{`Country: ${player.birth.country}`}</Card.Text>
-                            <Card.Text>{`Birth Date: ${player.birth.date}`}</Card.Text>
-                            {/* Add other Card components for additional information */}
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
+        <div>
+            <h1>Player Detail</h1>
+            <div>
+                <h2>{player.firstname} {player.lastname}</h2>
+                <img src={player.logo} alt={`${player.firstName} Logo`} />
+            </div>
+        </div>
     );
-};
+}
 
-export default PlayerDetail;
+export default TeamDetail;

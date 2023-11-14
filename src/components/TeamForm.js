@@ -32,6 +32,7 @@ function TeamForm({handleChange, handleSubmit,team}) {
                         onChange={handleChange}
                     />
                 </Form>
+
                 <Form className="mb-3">
                     <Form.Label > Post:</Form.Label>
                     <Form.Control

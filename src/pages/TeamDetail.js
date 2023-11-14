@@ -4,11 +4,11 @@ import { NbaContext } from '../context/NbaContext';
 
 function TeamDetail() {
     const { teamsFirestoreData,deleteTeam } = useContext(NbaContext);
-    const { id } = useParams();
+    const { name } = useParams();
     const navigate = useNavigate();
 
     // Find the team with the matching id
-    const team = teamsFirestoreData.find((team) => team.id === parseInt(id, 10));
+    const team = teamsFirestoreData.find((team) => team.name === parseInt(name, 10));
     console.log(team)
 
     function deleteHandler(id) {
