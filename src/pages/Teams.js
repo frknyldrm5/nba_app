@@ -32,7 +32,7 @@ function Teams() {
                                     <Card.Title>{team.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{team.nickname}</Card.Subtitle>
                                     <Button variant="outline-primary" onClick={() => detailButtonHandler(team)}>
-                                        Continue Reading
+                                        More Info
                                     </Button>
                                 </Card.Body>
                             </Card>
