@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NbaContext } from "../context/NbaContext";
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Col, Row } from "react-bootstrap";
+import Loading from "../components/Loading";
 
 function Teams() {
     const { teamsFirestoreData } = useContext(NbaContext);
@@ -35,7 +36,7 @@ function Teams() {
                         </Col>
                     ))
                 ) : (
-                    <p>Loading...</p>
+                    <Loading/>
                 )}
             </Row>
         </div>

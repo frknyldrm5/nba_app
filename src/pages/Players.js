@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import PlayerCard from '../components/PlayerCard';
 import { NbaContext } from '../context/NbaContext';
+import Loading from "../components/Loading";
 
 const Players = () => {
     // Use the useContext hook to access NBA player data from the context
@@ -19,7 +20,7 @@ const Players = () => {
                         </Col>
                     ))
                 ) : (
-                    <p>Loading players...</p>
+                    <Loading/>
                 )}
             </Row>
         </Container>
