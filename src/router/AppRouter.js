@@ -17,16 +17,28 @@ import EditTeam from "../pages/EditTeam";
 function AppRouter() {
 
     const {currentUser} = useContext(AuthContext);
+    console.log(currentUser)
 
 
     function LoggedInRouter() {
         let location = useLocation();
 
 
-        if (currentUser) {
-            return <Navigate to="/login" state={{from: location}} replace/>;
-        } else {
+        if (currentUser!==null) {
             return <Outlet/>;
+        } else {
+            return <Navigate to="/login" state={{from: location}} replace/>;
+        }
+    }
+
+    function LoggedOutRouter() {
+        let location = useLocation();
+
+
+        if (currentUser===null) {
+            return <Outlet/>;
+        } else {
+            return <Navigate to="/" state={{from: location}} replace/>;
         }
     }
 
@@ -35,17 +47,19 @@ function AppRouter() {
             <MyNavbar/>
             <Routes>
                 <Route element={<LoggedInRouter/>}>
-                    <Route path="/player-detail/:id" element={<PlayerDetail/>}/>
+                    <Route path= "/edit-team/:id" element={<EditTeam/>}/>
+                    <Route path="/create-team" element={<CreateTeam/>}/>
                 </Route>
-                <Route path="/create-team" element={<CreateTeam/>}/>
+                <Route element={<LoggedOutRouter/>}>
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                </Route>
                 <Route path="/" element={<Main />} />
                 <Route path="/teams" element={<Teams />} />
                 <Route path="/players" element={<Players />} />
                 <Route path="/standings" element={<Standings />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/team-detail/:id" element={<TeamDetail/>}/>
-                <Route path= "/edit-team/:id" element={<EditTeam/>}/>
+                <Route path="/player-detail/:id" element={<PlayerDetail/>}/>
             </Routes>
             <MyFooter/>
         </Router>
