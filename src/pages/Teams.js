@@ -1,48 +1,43 @@
 import React, { useContext } from 'react';
 import { NbaContext } from "../context/NbaContext";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import {Button, Card} from "react-bootstrap";
-import { teams } from "../data";
+import { useNavigate } from "react-router-dom";
+import { Button, Card, Col, Row } from "react-bootstrap";
 
 function Teams() {
     const { teamsFirestoreData } = useContext(NbaContext);
     const navigate = useNavigate();
-    const params = useParams();
-    console.log(teamsFirestoreData)
-
 
     function detailButtonHandler(team) {
-        navigate(`/team-detail/${team.id}`,{
-            state:{
-                team:team
+        navigate(`/team-detail/${team.id}`, {
+            state: {
+                team: team
             }
-        })
+        });
     }
-
 
     return (
         <div className="container bg-info">
-            <h1>Teams</h1>
-            <div className="card-container row justify-content-center ">
+            <h1 className="text-center mb-4">Teams</h1>
+            <Row xs={1} md={2} lg={3} className="g-4">
                 {Array.isArray(teamsFirestoreData) ? (
                     teamsFirestoreData.map((team) => (
-                        <div key={team.id} className="col-md-4 bg-danger text-center px-2" >
-                            <Card style={{ width: '18rem' }} className="border-3">
-                                <Card.Img variant="top" src={team.logo} alt={`${team.nickname} Logo`} />
+                        <Col key={team.id} className="mb-4">
+                            <Card style={{ width: '20rem', height: '30rem' }} className="border-3">
+                                <Card.Img variant="top" src={team.logo} alt={`${team.nickname} Logo`} className="img-fluid" style={{ objectFit: 'cover', height: '65%'}} />
                                 <Card.Body>
                                     <Card.Title>{team.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{team.nickname}</Card.Subtitle>
-                                    <Button variant="outline-primary" onClick={()=> {
-                                        detailButtonHandler(team)
-                                    }}>Continue Reading</Button>
+                                    <Button variant="outline-primary" onClick={() => detailButtonHandler(team)}>
+                                        Continue Reading
+                                    </Button>
                                 </Card.Body>
                             </Card>
-                        </div>
+                        </Col>
                     ))
                 ) : (
                     <p>Loading...</p>
                 )}
-            </div>
+            </Row>
         </div>
     );
 }
