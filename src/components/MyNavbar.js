@@ -1,18 +1,20 @@
-import React, { useContext } from 'react';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
-import { AuthContext } from '../context/AuthContext';
+import React, {useContext} from 'react';
+import {Nav,Navbar} from "react-bootstrap";
+import {AuthContext} from "../context/AuthContext";
+
 
 function MyNavbar() {
-    const { currentUser, logOut } = useContext(AuthContext);
+    const {currentUser,logOut} = useContext(AuthContext);
+    console.log(currentUser);
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" >
+        <Navbar bg="dark" variant="dark" expand="lg">
             <Navbar.Brand href="/">
                 <img
                     src="/images/nba-logo_.jpeg"
                     width="70"
                     height="60"
-                    className="d-inline-block align-top mr-3 ml-3 mb-2 mt-2 rounded border border-white shadow p-1 bg-white rounded "
+                    className="d-inline-block align-top"
                     alt="NBALogo"
                 />
             </Navbar.Brand>
@@ -23,14 +25,13 @@ function MyNavbar() {
                     <Nav.Link href="/players">Players</Nav.Link>
                     <Nav.Link href="/teams">Teams</Nav.Link>
                     <Nav.Link href="/standings">Standings</Nav.Link>
-                    <Nav.Link href="/create-team">Create Team</Nav.Link>
                     {currentUser ? (
-                        <NavDropdown title={currentUser.displayName} id="basic-nav-dropdown">
-                            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-                            <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={() => logOut()}>Logout</NavDropdown.Item>
-                        </NavDropdown>
-                    ) : (
+                        <>
+                            <Nav.Link href="/create-team">Create Team</Nav.Link>
+                            <Nav.Link href="/profile">{currentUser.displayName}</Nav.Link>
+                            <Nav.Link onClick={()=>logOut()}>Logout</Nav.Link>
+                        </>
+                    ):(
                         <>
                             <Nav.Link href="/login">Login</Nav.Link>
                             <Nav.Link href="/register">Register</Nav.Link>
@@ -41,5 +42,6 @@ function MyNavbar() {
         </Navbar>
     );
 }
+
 
 export default MyNavbar;

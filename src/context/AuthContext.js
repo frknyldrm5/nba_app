@@ -86,7 +86,9 @@ function AuthContextProvider({children}) {
                 localStorage.setItem("currentUser",JSON.stringify(user))
                 setCurrentUser(user)
             } else {
-                setCurrentUser(false)
+                localStorage.setItem("currentUser",JSON.stringify(null))
+                setCurrentUser(null)
+
             }
         });
     }

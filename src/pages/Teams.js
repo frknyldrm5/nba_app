@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
 import { NbaContext } from "../context/NbaContext";
-import { useNavigate } from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import { Button, Card, Col, Row } from "react-bootstrap";
 import Loading from "../components/Loading";
 
 function Teams() {
     const { teamsFirestoreData } = useContext(NbaContext);
     const navigate = useNavigate();
+    // const params = useParams();
+    // console.log(teamsFirestoreData)
+
 
     function detailButtonHandler(team) {
         navigate(`/team-detail/${team.id}`, {
