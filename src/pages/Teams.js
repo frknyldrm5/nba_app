@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { NbaContext } from "../context/NbaContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Card } from "react-bootstrap";
+import {Button, Card} from "react-bootstrap";
 import { teams } from "../data";
 
 function Teams() {
@@ -9,6 +9,16 @@ function Teams() {
     const navigate = useNavigate();
     const params = useParams();
     console.log(teamsFirestoreData)
+
+
+    function detailButtonHandler(team) {
+        navigate(`/team-detail/${team.id}`,{
+            state:{
+                team:team
+            }
+        })
+    }
+
 
     return (
         <div className="container bg-info">
@@ -22,7 +32,9 @@ function Teams() {
                                 <Card.Body>
                                     <Card.Title>{team.name}</Card.Title>
                                     <Card.Subtitle className="mb-2 text-muted">{team.nickname}</Card.Subtitle>
-                                    <Link to={`/team-detail/${team.id}`} className="btn btn-primary">View Details</Link>
+                                    <Button variant="outline-primary" onClick={()=> {
+                                        detailButtonHandler(team)
+                                    }}>Continue Reading</Button>
                                 </Card.Body>
                             </Card>
                         </div>

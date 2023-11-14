@@ -24,11 +24,11 @@ function TeamForm({handleChange, handleSubmit,team}) {
                     <Form.Label > Title:</Form.Label>
                     <Form.Control
                         required
-                        name="mehmet"
+                        name="name"
                         className="form-control"
                         type="text"
                         placeholder ={team? null:"Team Name"}
-                        value={team? team.teamName:undefined}
+                        value={team? team.name:undefined}
                         onChange={handleChange}
                     />
                 </Form>

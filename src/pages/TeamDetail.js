@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 
 function TeamDetail() {
-    const { teamsFirestoreData,deleteTeam } = useContext(NbaContext);
-    const { name } = useParams();
+    const {deleteTeam } = useContext(NbaContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const team = location.state.team;
 
-    // Find the team with the matching id
-    const team = teamsFirestoreData.find((team) => team.name === parseInt(name, 10));
+
     console.log(team)
 
     function deleteHandler(id) {
@@ -18,6 +18,13 @@ function TeamDetail() {
         } else {
             console.error("Invalid team id:", id);
         }
+    }
+    function editHandler(){
+        navigate(`/edit-team/${team.id}`,{
+            state:{
+                team:team
+            }
+        })
     }
 
 
@@ -40,6 +47,11 @@ function TeamDetail() {
                         }}
                 >
                     &#128465;
+                </button>
+                <button className="btn btn-outline-primary" onClick={() => {
+                    editHandler();
+                }}>
+                    &#9998;
                 </button>
                 <h2>Players</h2>
 

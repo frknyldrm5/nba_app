@@ -3,7 +3,7 @@ import {Nav,Navbar} from "react-bootstrap";
 import {AuthContext} from "../context/AuthContext";
 
 
-function MyNavbar(props) {
+function MyNavbar() {
     const {currentUser,logOut} = useContext(AuthContext);
 
     return (
@@ -27,9 +27,10 @@ function MyNavbar(props) {
                     <Nav.Link href="/create-team">Create Team</Nav.Link>
                     <Nav.Link href="/login">Login</Nav.Link>
                     <Nav.Link href="/register">Register</Nav.Link>
-                    {currentUser ? (<Nav.Link href="/profile">{currentUser.displayName}</Nav.Link>):null}
-                    {/*logOut button*/}
-                    {currentUser ? (<Nav.Link onClick={()=>logOut()}>Logout</Nav.Link>):null}
+                    {currentUser ? (<>
+                        <Nav.Link href="/profile">{currentUser.displayName}</Nav.Link>
+                        <Nav.Link onClick={()=>logOut()}>Logout</Nav.Link>
+                    </>):null}
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

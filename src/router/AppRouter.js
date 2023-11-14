@@ -12,6 +12,7 @@ import PlayerDetail from "../pages/PlayerDetail";
 import {AuthContext} from "../context/AuthContext";
 import {useContext} from "react";
 import CreateTeam from "../pages/CreateTeam";
+import EditTeam from "../pages/EditTeam";
 
 function AppRouter() {
 
@@ -43,7 +44,8 @@ function AppRouter() {
                 <Route path="/standings" element={<Standings />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/team-detail/:name" element={<TeamDetail/>}/>
+                <Route path="/team-detail/:id" element={<TeamDetail/>}/>
+                <Route path= "/edit-team/:id" element={<EditTeam/>}/>
             </Routes>
             <MyFooter/>
         </Router>
