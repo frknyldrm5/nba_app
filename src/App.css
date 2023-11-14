@@ -2,16 +2,7 @@
     text-align: center;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
 
 .App-header {
     background-color: #282c34;
@@ -24,45 +15,30 @@
     color: white;
 }
 
-.post-group {
-
-
-}
-
-.post {
-    background-color: purple;
-}
-
-.edit-pen {
-    cursor: pointer;
-    border: solid 1px black;
-}
-
-
 
 .card-img-top {
     width: 100%;
     height: 30vh;
-    object-fit: fill;
+    object-fit: cover; /* fill yerine cover kullanılabilir */
+    border: 1px solid #ccc;
+    border-bottom: none;
 }
 
 .card__preview-text {
-
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2; /* Satır sayısını 1'den 2'ye çıkardım, isteğinize göre ayarlayabilirsiniz */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-top: 10px; /* İstediğiniz boşluk miktarına göre ayarlayabilirsiniz */
+}
+.card:hover {
+    transform: scale(1.05); /* Kartın boyutunu 1.05 katına çıkarır, istediğiniz değeri kullanabilirsiniz */
+    transition: transform 0.3s ease; /* Animasyon süresi ve geçiş efekti */
+    border-color: #000;
+
 }
 
 
 
-.detail-image {
-    width: 40em;
-    height: 20em;
 
-}
 
-.navbar-image{
-    width: 60px;
-    height: 60px;
-}
