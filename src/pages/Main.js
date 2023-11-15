@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
 import BannerImage from '../assets/lebron.jpeg';
-import Loading from "../components/Loading";
 
 const fontStyle = {
     fontFamily: 'Arial, sans-serif',

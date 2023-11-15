@@ -48,20 +48,20 @@ function NbaContextProvider({ children }) {
         onSnapshot(teamsCollectionRef,(snapshot)=>{
             setTeamsFirestoreData(snapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
         })
-    },[] );
+    },);
     useEffect(() => {
 
         onSnapshot(playersCollectionRef,(snapshot)=>{
             setPlayersFirestoreData(snapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
         })
 
-    },[] );
+    }, );
     useEffect(() => {
 
         onSnapshot(standingsCollectionRef,(snapshot)=>{
             setStandingsFirestoreData(snapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
         })
-    },[] );
+    },);
 
 
 
