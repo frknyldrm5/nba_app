@@ -28,6 +28,7 @@ function MyNavbar() {
                     {currentUser ? (
                         <>
                             <Nav.Link href="/create-team">Create Team</Nav.Link>
+                            <Nav.Link href="/create-player">Create Player</Nav.Link>
                             <Nav.Link href="/profile">{currentUser.displayName}</Nav.Link>
                             <Nav.Link onClick={()=>logOut()}>Logout</Nav.Link>
                         </>
