@@ -1,8 +1,7 @@
-import { Card } from 'react-bootstrap';
+import {Button, Card} from 'react-bootstrap';
 import React from "react";
-import {Link} from "react-router-dom";
 
-const PlayerCard = ({ player }) => {
+const PlayerCard = ({ player,detailButtonHandler }) => {
 
 
     return (
@@ -14,7 +13,9 @@ const PlayerCard = ({ player }) => {
                 <Card.Subtitle className="mb-2 text-muted">{player.team}</Card.Subtitle>
                 <Card.Text>{`Country: ${player.birth.country}`}</Card.Text>
                 <Card.Text>{`Birth Date: ${player.birth.date}`}</Card.Text>
-                <Link to={`/player-detail/${player.id}`} className="btn btn-primary">View Details</Link>
+                <Button variant="outline-primary" onClick={()=> {
+                    detailButtonHandler(player)
+                }}>Continue Reading</Button>
             </Card.Body>
         </Card>
     );

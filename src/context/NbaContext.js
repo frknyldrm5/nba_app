@@ -70,9 +70,14 @@ function NbaContextProvider({ children }) {
         await deleteDoc(teamDoc);
     };
 
+    const deletePlayer = async (id) => {
+        const playerDoc = doc(db, "players", id);
+        await deleteDoc(playerDoc);
+    };
+
 
     return (
-        <NbaContext.Provider value={{ teamsFirestoreData, playersFirestoreData, standingsFirestoreData,deleteTeam }}>
+        <NbaContext.Provider value={{ teamsFirestoreData, playersFirestoreData, standingsFirestoreData,deleteTeam,deletePlayer }}>
             {children}
         </NbaContext.Provider>
     );

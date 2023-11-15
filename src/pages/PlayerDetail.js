@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import {useLocation, useNavigate, useParams} from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 
-function TeamDetail() {
-    const { playersFirestoreData } = useContext(NbaContext);
-    const { id } = useParams();
+function PlayerDetail() {
+    const {deletePlayer } = useContext(NbaContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const player = location.state.player;
 
-    // Find the team with the matching id
-    const player = playersFirestoreData.find((player) => player.id === parseInt(id, 10));
     console.log(player)
 
     if (!player) {
@@ -25,4 +25,4 @@ function TeamDetail() {
     );
 }
 
-export default TeamDetail;
+export default PlayerDetail;
