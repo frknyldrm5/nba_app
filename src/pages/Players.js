@@ -4,7 +4,6 @@ import PlayerCard from '../components/PlayerCard';
 import { NbaContext } from '../context/NbaContext';
 import Loading from "../components/Loading";
 
-// ... (imports)
 
 const Players = () => {
     // Use the useContext hook to access NBA player data from the context
