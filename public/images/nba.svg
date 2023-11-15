@@ -1,0 +1,23 @@
+<svg width="350" height="140" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <!-- Black Gradient -->
+        <linearGradient x1="50%" y1=".779%" x2="50%" y2="100%" id="black-gradient">
+            <stop stop-color="#000" stop-opacity="0" offset="0%" />
+            <stop stop-color="#000" offset="99.94%" />
+        </linearGradient>
+        <!-- Blue Gradient -->
+        <linearGradient x1="50%" y1=".779%" x2="50%" y2="100%" id="blue-gradient">
+            <stop stop-color="#0989B4" stop-opacity="0" offset="0%" />
+            <stop stop-color="#53FFEE" offset="99.94%" />
+        </linearGradient>
+        <path id="a" d="M0 0h350v140H0z" />
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <mask id="b" fill="#fff">
+            <use xlink:href="#a" />
+        </mask>
+        <!-- Black Gradient Filled Shape -->
+        <use fill="url(#black-gradient)" xlink:href="#a" />
+        <!-- Blue Gradient Masked Group -->
+    </g>
+</svg>

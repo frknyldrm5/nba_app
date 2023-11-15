@@ -4,6 +4,7 @@ import PlayerCard from '../components/PlayerCard';
 import { NbaContext } from '../context/NbaContext';
 import Loading from "../components/Loading";
 import { useNavigate } from 'react-router-dom';
+import ProfileCard from "../components/ProfileCard/ProfileCard";
 
 const Players = () => {
     const { playersFirestoreData } = useContext(NbaContext);
@@ -42,7 +43,7 @@ const Players = () => {
                 {Array.isArray(filteredPlayers) ? (
                     filteredPlayers.map((player) => (
                         <Col key={player.id}>
-                            <PlayerCard player={player} detailButtonHandler={() => detailButtonHandler(player)} />
+                            <ProfileCard player={player} detailButtonHandler={() => detailButtonHandler(player)} />
                         </Col>
                     ))
                 ) : (
