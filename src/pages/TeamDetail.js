@@ -9,7 +9,7 @@ function TeamDetail() {
     const location = useLocation();
     const team = location.state && location.state.team;
     const allStar = team.allStar === true ? 'Yes' : 'No';
-    const conference = team.leagues.sacramento  ?  team.leagues.sacramento.conference : 'No conference' ;
+    const conference = team?.leagues?.sacramento  ?  team.leagues.sacramento.conference : 'No conference' ;
 
     function deleteHandler(id) {
         if (id) {
@@ -41,10 +41,10 @@ function TeamDetail() {
                     <Card.Body>
                         <Card.Title style={{ fontWeight: 'bold' }}>{team.name}</Card.Title>
                         <Card.Text>
-                            <p><strong>Nickname:</strong> {team.nickname}</p>
-                            <p><strong>City:</strong> {team.city}</p>
+                            <p><strong>Nickname:</strong> {team?.nickname}</p>
+                            <p><strong>City:</strong> {team?.city}</p>
                             <p><strong>Conference:</strong> {conference}</p>
-                            <p><strong>Code:</strong> {team.code}</p>
+                            <p><strong>Code:</strong> {team?.code}</p>
                             <p><strong>Has AllStar:</strong> {allStar}</p>
                         </Card.Text>
                         <div className="mb-3">

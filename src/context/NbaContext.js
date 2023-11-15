@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { collection, getDocs,doc,deleteDoc, onSnapshot  } from 'firebase/firestore';
+import { collection,doc,deleteDoc, onSnapshot  } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 
 export const NbaContext = createContext();
