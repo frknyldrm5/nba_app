@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Col, Container, Row, Form } from 'react-bootstrap';
-import PlayerCard from '../components/PlayerCard';
 import { NbaContext } from '../context/NbaContext';
 import Loading from "../components/Loading";
 import { useNavigate } from 'react-router-dom';

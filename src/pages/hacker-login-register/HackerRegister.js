@@ -3,7 +3,6 @@ import './HackerLogin.css';
 import AuthForm from "../../components/AuthForm"; // Import your AuthForm component
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import MyFooter from "../../components/MyFooter";
 
 const HackerRegister = () => {
 

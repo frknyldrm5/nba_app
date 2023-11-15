@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {useLocation, useNavigate, useParams} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import { NbaContext } from '../context/NbaContext';
 import {Button, Card} from "react-bootstrap";
 

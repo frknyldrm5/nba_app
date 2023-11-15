@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {useNavigate, useLocation} from "react-router-dom";
 import {doc, updateDoc} from "firebase/firestore";
 import {db} from "../firebase/firebase";
-import TeamForm from "../components/TeamForm";
 import PlayerForm from "../components/PlayerForm";
 
 

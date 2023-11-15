@@ -1,9 +1,8 @@
 import {addDoc, collection} from "firebase/firestore";
 import {useNavigate} from "react-router-dom";
-import {useContext, useState} from "react";
+import { useState} from "react";
 import TeamForm from "../components/TeamForm";
-import {NbaContext} from "../context/NbaContext";
-import {db,auth} from "../firebase/firebase";
+import {db} from "../firebase/firebase";
 
 
 function CreateTeam() {
@@ -13,7 +12,6 @@ function CreateTeam() {
         name: "",
         logo: "",
     });
-    const { teamsFirestoreData } = useContext(NbaContext);
     let navigate = useNavigate();
 
 

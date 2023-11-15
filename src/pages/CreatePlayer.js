@@ -13,7 +13,6 @@ function CreatePlayer() {
         lastname: "",
         affiliation: "",
     });
-    const { playersFirestoreData } = useContext(NbaContext);
     let navigate = useNavigate();
 
 
