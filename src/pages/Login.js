@@ -14,9 +14,6 @@ function Login() {
     const { email, password}=info;
     const navigate = useNavigate();
 
-
-
-
     const handleSubmit = (e)=>{
 
         e.preventDefault();

@@ -1,6 +1,5 @@
 import React, {useContext} from "react";
 import {AuthContext} from "../context/AuthContext";
-import BannerImage from "../assets/lebron.jpeg";
 
 
 function AuthForm({handleChange, handleSubmit,info}) {
@@ -9,7 +8,7 @@ function AuthForm({handleChange, handleSubmit,info}) {
     const {signUpProvider} = useContext(AuthContext);
 
     return (
-        <div className="container d-grid justify-content-center " style={{ minHeight: '100vh' }}>
+        <div className="container d-grid justify-content-center " >
             <form className="mb-3" onSubmit={handleSubmit}>
 
                 { info.firstName && <div className="mb-3">

@@ -5,7 +5,6 @@ import Players from "../pages/Players";
 import MyNavbar from "../components/MyNavbar";
 import MyFooter from "../components/MyFooter";
 import Standings from "../pages/Standings";
-import Login from "../pages/Login";
 import Register from "../pages/Register";
 import TeamDetail from "../pages/TeamDetail";
 import PlayerDetail from "../pages/PlayerDetail";
@@ -13,6 +12,9 @@ import {AuthContext} from "../context/AuthContext";
 import {useContext} from "react";
 import CreateTeam from "../pages/CreateTeam";
 import EditTeam from "../pages/EditTeam";
+import EditPlayer from "../pages/EditPlayer";
+import CreatePlayer from "../pages/CreatePlayer";
+import HackerLogin from "../pages/hacker-login/HackerLogin";
 
 function AppRouter() {
 
@@ -49,10 +51,12 @@ function AppRouter() {
                 <Route element={<LoggedInRouter/>}>
                     <Route path= "/edit-team/:id" element={<EditTeam/>}/>
                     <Route path="/create-team" element={<CreateTeam/>}/>
+                    <Route path= "/edit-player/:id" element={<EditPlayer/>}/>
+                    <Route path="/create-player" element={<CreatePlayer/>}/>
                 </Route>
                 <Route element={<LoggedOutRouter/>}>
                     <Route path="/register" element={<Register/>}/>
-                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/login" element={<HackerLogin/>}/>
                 </Route>
                 <Route path="/" element={<Main />} />
                 <Route path="/teams" element={<Teams />} />
