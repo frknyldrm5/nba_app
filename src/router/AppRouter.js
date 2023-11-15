@@ -5,7 +5,6 @@ import Players from "../pages/Players";
 import MyNavbar from "../components/MyNavbar";
 import MyFooter from "../components/MyFooter";
 import Standings from "../pages/Standings";
-import Register from "../pages/Register";
 import TeamDetail from "../pages/TeamDetail";
 import PlayerDetail from "../pages/PlayerDetail";
 import {AuthContext} from "../context/AuthContext";
@@ -14,7 +13,8 @@ import CreateTeam from "../pages/CreateTeam";
 import EditTeam from "../pages/EditTeam";
 import EditPlayer from "../pages/EditPlayer";
 import CreatePlayer from "../pages/CreatePlayer";
-import HackerLogin from "../pages/hacker-login/HackerLogin";
+import HackerLogin from "../pages/hacker-login-register/HackerLogin";
+import HackerRegister from "../pages/hacker-login-register/HackerRegister";
 
 function AppRouter() {
 
@@ -55,7 +55,7 @@ function AppRouter() {
                     <Route path="/create-player" element={<CreatePlayer/>}/>
                 </Route>
                 <Route element={<LoggedOutRouter/>}>
-                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/register" element={<HackerRegister/>}/>
                     <Route path="/login" element={<HackerLogin/>}/>
                 </Route>
                 <Route path="/" element={<Main />} />
