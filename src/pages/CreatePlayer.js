@@ -1,7 +1,6 @@
 import {addDoc, collection} from "firebase/firestore";
 import {useNavigate} from "react-router-dom";
-import {useContext, useState} from "react";
-import {NbaContext} from "../context/NbaContext";
+import { useState} from "react";
 import {db} from "../firebase/firebase";
 import PlayerForm from "../components/PlayerForm";
 
