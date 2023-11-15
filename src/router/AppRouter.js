@@ -1,4 +1,4 @@
-import {HashRouter as Router, Navigate, Outlet, Route, Routes, useLocation} from "react-router-dom";
+import {HashRouter, Navigate, Outlet, Route, Routes, useLocation} from "react-router-dom";
 import Main from "../pages/Main";
 import Teams from "../pages/Teams";
 import Players from "../pages/Players";
@@ -45,7 +45,7 @@ function AppRouter() {
     }
 
     return (
-        <Router>
+        <HashRouter>
             <MyNavbar/>
             <Routes>
                 <Route element={<LoggedInRouter/>}>
@@ -66,7 +66,7 @@ function AppRouter() {
                 <Route path="/player-detail/:id" element={<PlayerDetail/>}/>
             </Routes>
             <MyFooter/>
-        </Router>
+        </HashRouter>
     );
 }
 
