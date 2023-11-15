@@ -6,40 +6,40 @@ import TeamForm from "../components/TeamForm";
 import PlayerForm from "../components/PlayerForm";
 
 
-function EditTeam() {
+function EditPlayer() {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const team = location.state.team;
-    const [updatedTeam, setUpdatedTeam] = useState(team);
+    const player = location.state.player;
+    const [updatedPlayer, setUpdatedPlayer] = useState(player);
 
-    const {city,name,logo}=updatedTeam
+    const {firstname,lastname,affiliation}=updatedPlayer
 
 
     const handleSubmit = async () => {
-        const teamDoc = doc(db, "teams", team.id);
+        const teamDoc = doc(db, "players", player.id);
         navigate("/");
         await updateDoc(teamDoc, {
-            city: city,
-            name: name,
-            logo: logo,
+            firstname: firstname,
+            lastname: lastname,
+            affiliation: affiliation,
         });
 
 
     }
 
     const handleChange = (e) => {
-        setUpdatedTeam({...updatedTeam, [e.target.name]: e.target.value})
+        setUpdatedPlayer({...updatedPlayer, [e.target.name]: e.target.value})
     }
 
 
     return (
 
 
-        <PlayerForm handleChange={handleChange} handleSubmit={handleSubmit} team={updatedTeam}/>
+        <PlayerForm handleChange={handleChange} handleSubmit={handleSubmit} player={updatedPlayer}/>
 
 
     );
 }
 
-export default EditTeam;
+export default EditPlayer;
