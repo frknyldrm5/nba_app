@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Navigate, Outlet, Route, Routes, useLocation} from "react-router-dom";
+import {HashRouter as Router, Navigate, Outlet, Route, Routes, useLocation} from "react-router-dom";
 import Main from "../pages/Main";
 import Teams from "../pages/Teams";
 import Players from "../pages/Players";
