@@ -44,8 +44,8 @@ function PlayerDetail() {
                             <p><strong>Firstname:</strong> {player?.firstname}</p>
                             <p><strong>Lastname:</strong> {player?.lastname}</p>
                             <p><strong>Affiliation:</strong> {player?.affiliation}</p>
-                            <p><strong>Birth Date:</strong> {player?.birth.date}</p>
-                            <p><strong>Country:</strong> {player?.birth.country}</p>
+                            <p><strong>Birth Date:</strong> {player?.birth?.date}</p>
+                            <p><strong>Country:</strong> {player?.birth?.country}</p>
                         </Card.Text>
                         <div className="mb-3">
                             <Button variant="outline-danger" className="mx-2" onClick={() => deleteHandler(player.id)}>

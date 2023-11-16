@@ -46,7 +46,7 @@ function PlayerForm({handleChange, handleSubmit,player}) {
                     />
                 </Form>
                 <div className="text-center">
-                    <Button variant="outline-primary" type="submit"> Submit Team</Button>
+                    <Button variant="outline-primary" type="submit"> Submit Player</Button>
                 </div>
             </Form>
         </div>
