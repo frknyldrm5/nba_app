@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {useNavigate, useLocation} from "react-router-dom";
 import {doc, updateDoc} from "firebase/firestore";
 import {db} from "../firebase/firebase";
-import PlayerForm from "../components/PlayerForm";
+import TeamForm from "../components/TeamForm";
 
 
 function EditTeam() {
@@ -35,7 +35,7 @@ function EditTeam() {
     return (
 
 
-        <PlayerForm handleChange={handleChange} handleSubmit={handleSubmit} team={updatedTeam}/>
+        <TeamForm handleChange={handleChange} handleSubmit={handleSubmit} team={updatedTeam}/>
 
 
     );

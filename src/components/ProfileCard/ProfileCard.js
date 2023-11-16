@@ -4,7 +4,11 @@ import classes from "./ProfileCard.module.css";
 
 const ProfileCard = ({player,detailButtonHandler}) => {
     const currentYear = new Date().getFullYear();
-    const playerAge = currentYear - parseInt(player.birth.date.split("-")[0], 10);
+    let playerAge;
+    if (player?.birth?.date){     playerAge = currentYear - parseInt(player?.birth?.date.split("-")[0], 10);
+    }else{
+         playerAge = "N/A";
+    }
 
     return (
         <>
@@ -22,7 +26,7 @@ const ProfileCard = ({player,detailButtonHandler}) => {
                         {player.firstname} {player.lastname} <span className={classes.TextMuted + " pl-1"}>{playerAge}</span>
                     </Card.Text>
                     <Card.Text className={classes.TextMuted}>
-                        {player.birth.country}
+                        {player?.birth?.country}
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className={classes.CardFooter}>
